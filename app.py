@@ -9,7 +9,7 @@ from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.resnet50 import ResNet50, preprocess_input
 from PIL import Image
 
-st.image('omdena-logo.png', width=100)
+st.image('images/omdena-logo.png', width=100)
 st.markdown('<h2 style="color:black;">Mango Leaf Disease Classification Web App</h2>', unsafe_allow_html=True)
 st.markdown('<h3 style="color:gray;">This app predicts the disease in mango leaves</h3>', unsafe_allow_html=True)
 
@@ -25,7 +25,7 @@ model.layers[0].trainable = False
 model.compile(Adam(learning_rate=0.001), loss=tf.keras.losses.CategoricalCrossentropy(from_logits=True), metrics=['accuracy'])
 
 # Load the model
-model.load_weights('mango_leaf_classification_model_weights_omdena_resnet50.hdf5')
+model.load_weights('model/mango_leaf_classification_model_weights_omdena_resnet50.hdf5')
 
 upload= st.file_uploader('Upload the image of mango leaf for disease detection', type=["png", "jpg", "jpeg"])
 c1, c2= st.columns(2)
